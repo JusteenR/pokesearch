@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.listItem {
+  text-align: center;
+  padding: 1%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
