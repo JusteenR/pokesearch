@@ -39,6 +39,18 @@
 
 .listItem {
   text-align: center;
-  padding: 1%;
+  padding: 0.5%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width:fit-content;
+  margin: 0 auto;
+}
+
+#display {
+  text-align: center;
+}
+
+input[type=text] {
+  width: 30%;
+  margin: 5vh;
+  padding: 12px 20px;
 }

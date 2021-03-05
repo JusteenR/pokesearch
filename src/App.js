@@ -29,8 +29,8 @@ function App() {
   }
 
   return (
-    <div>
-      <input type='text' value={input} onChange={updateInput} placeholder="search for pokemon"/>
+    <div id='display'>
+      <input id='searchBar' type='text' value={input} onChange={updateInput} placeholder="Search for pokemon..."/>
       <PokemonList pokemonList={pokemonFiltered}/>
     </div>
   );
