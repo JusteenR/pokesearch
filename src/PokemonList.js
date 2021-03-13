@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import NameGenerator from './NameGenerator'
 import Modal from 'react-bootstrap/Modal';
 
 function PokemonList({ pokemonList }) {
@@ -40,6 +40,7 @@ function PokemonList({ pokemonList }) {
                     </Modal.Header>
                     <Modal.Body>
                         <img src={pic.url}></img>
+                        <NameGenerator></NameGenerator>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>

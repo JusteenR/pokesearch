@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#  prevent the virtual environment and the cache bytecode directories that Python 3 creates from ever getting added to source control
+venv
+__pycache__
