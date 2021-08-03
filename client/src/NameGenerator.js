@@ -19,7 +19,7 @@ function NameGenerator( { pokemon }) {
 
   return (
     <div>
-      {currentType != 0 && <Scraper type={currentType}></Scraper>}
+      {currentType != 0 && <Scraper type={currentType} name={pokemon}></Scraper>}
     </div>
   );
 }

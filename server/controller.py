@@ -6,7 +6,7 @@ import random
 
 from flask import Flask, jsonify
 
-def generateWords(pokemonType):
+def generateWords(pokemonType, pokemonName):
     url = 'https://www.merriam-webster.com/thesaurus/' + pokemonType
     r   = requests.get(url, headers={'User-Agent':'Mozilla/5.0'})
     soup = BeautifulSoup(r.content, 'html5lib')
@@ -25,8 +25,18 @@ def generateWords(pokemonType):
                 if word:
                     ans = word.group()
                     res.append(ans[:6])
-    randomString = chooseRandomWord(res)
-    return jsonify(results=randomString)
+    # Chose random ordering
+    randomOrder = random.randint(0,1)
+
+    #Filter out dashes in pokemon name for mega
+    pokemonName = pokemonName.split('-')[0]
+    if randomOrder == 0:
+        prefix = chooseRandomWord(res)
+        suffix = cutName(pokemonName, randomOrder)
+    else:
+        prefix = cutName(pokemonName, randomOrder)
+        suffix = chooseRandomWord(res)
+    return jsonify(results=(prefix+suffix).capitalize())
 
 def chooseRandomWord(synonyms):
     # Choose random word
@@ -39,4 +49,14 @@ def chooseRandomWord(synonyms):
     if randomLength >= len(synonyms[randomIndex]):
         return synonyms[randomIndex]
     return synonyms[randomIndex][:randomLength]
-    
+
+def cutName(pokemonName, randomOrder):
+    # Cut it to be either 3 or 6 characters long
+    randomLength = random.randint(3, 6)
+    if randomOrder == 1:
+        return pokemonName[:randomLength]
+    else:
+        if randomLength < len(pokemonName):
+            return pokemonName[randomLength:]
+        else:
+            pokemonName
