@@ -23,8 +23,6 @@ function PokemonList({ pokemonList }) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    console.log(pic.name)
-
     return (
         <div>
                 {pokemonList.map((p, i) => (
@@ -40,7 +38,7 @@ function PokemonList({ pokemonList }) {
                     </Modal.Header>
                     <Modal.Body>
                         <img src={pic.url}></img>
-                        <NameGenerator></NameGenerator>
+                        <NameGenerator pokemon={pic.name}></NameGenerator>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
